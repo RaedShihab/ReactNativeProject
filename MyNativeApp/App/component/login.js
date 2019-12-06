@@ -3,23 +3,40 @@ import {View, Text, StyleSheet} from 'react-native';
 import {Button, Card, CardItem, Input} from '../common-component';
 
 class Login extends React.Component {
-
-  //  onPress = ()=> console.log('login')
-    
+  constructor(props) {
+    super(props)
+    this.state = {
+      userName : '',
+      pssword: '',
+    }
+  } 
 
     render(){
         return (
-          // <View>
-          //   <Button />
-          // </View>
             <View >
                 <Card>
                   <CardItem>
-                    <Input name={'Name'}>
+                    <Input 
+                    lable='Email'
+                    placeholder= 'Enter your Email please'
+                    secureTextEntry = {false}
+                    autoCorrect= {false}
+                    onChangeText={(userName)=> this.setState({userName})}
+                    >
                     </Input>
                   </CardItem>
                   <CardItem>
-                    <Button />
+                    <Input
+                    lable='password'
+                    placeholder= 'Enter your password please'
+                    secureTextEntry = {true}
+                    autoCorrect= {false}
+                    onChangeText={(pssword)=> this.setState({pssword})}
+                    >
+                    </Input>
+                  </CardItem>
+                  <CardItem>
+                    <Button click={()=> console.log(this.state.userName, this.state.pssword)}/>
                   </CardItem>
                 </Card>
             </View>

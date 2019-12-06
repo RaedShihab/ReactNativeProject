@@ -1,11 +1,17 @@
 import React from'react';
-import {View, Text, TextInput, StyleSheet, ShadowPropTypesIOS} from 'react-native';
+import {View, Text, TextInput, StyleSheet} from 'react-native';
 
 const Input = (props  )=> {
     return (
         <View style={styles.container}>
-            <Text style={ styles.text}>{props.name}</Text>
-            <TextInput style={ styles.input} />
+            <Text style={ styles.text}>{props.lable}</Text>
+            <TextInput 
+             style={styles.input}
+             placeholder={props.placeholder}
+             secureTextEntry={props.secureTextEntry}
+             autoCorrect={props.autoCorrect}
+             onChangeText={props.onChangeText}
+            />
         </View>
     );
 }
