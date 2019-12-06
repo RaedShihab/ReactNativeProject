@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import Home from './App/component/home';
-import Login from './App/component/login';
-import RootNavigator from './App/rRootNavigator/navigator'
+import RootNavigator from './App/rRootNavigator/navigator';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import reducers from './App/reducers';
 
 class App extends Component {
   render() {
-    return <RootNavigator />
+    return <Provider store = {store}>
+              <RootNavigator />
+          </Provider>
   }
 }
+const store = createStore(reducers)
 export default App;
