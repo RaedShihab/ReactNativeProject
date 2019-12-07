@@ -1,17 +1,27 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {Button, Card, CardItem, Input} from '../common-component';
+import {connect} from 'react-redux';
+import {loginUser} from '../actions'
 
 class Login extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       userName : '',
-      pssword: '',
+      password: '',
     }
-  } 
+  }
+
+  logIn = ()=> {
+    const userName = this.state.userName;
+    const password = this.state.password;
+    // const {userName, password} = this.state;
+    this.props.loginUser(userName, password)
+  }
 
     render(){
+      console.log('data from reudx',this.props.loginInfo)
         return (
             <View >
                 <Card>
@@ -31,12 +41,13 @@ class Login extends React.Component {
                     placeholder= 'Enter your password please'
                     secureTextEntry = {true}
                     autoCorrect= {false}
-                    onChangeText={(pssword)=> this.setState({pssword})}
+                    onChangeText={(password)=> this.setState({password})}
                     >
                     </Input>
                   </CardItem>
                   <CardItem>
-                    <Button click={()=> console.log(this.state.userName, this.state.pssword)}/>
+                    {/* <Button click={()=> console.log(this.state.userName, this.state.pssword)}/> */}
+                    <Button click={this.logIn}/> 
                   </CardItem>
                 </Card>
             </View>
@@ -59,4 +70,10 @@ class Login extends React.Component {
     },
   })
 
- export default Login;
+  const mapStateToProps = (state) => {
+    return {
+      loginInfo : state
+    }
+  }
+
+ export default connect(mapStateToProps, {loginUser})(Login);

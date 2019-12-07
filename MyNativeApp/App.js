@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import RootNavigator from './App/rRootNavigator/navigator';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
 import reducers from './App/reducers';
+
+import {Provider,} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import ReduxThunk from  'redux-thunk';
+
 
 class App extends Component {
   render() {
@@ -11,5 +14,6 @@ class App extends Component {
           </Provider>
   }
 }
-const store = createStore(reducers)
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk))
+
 export default App;

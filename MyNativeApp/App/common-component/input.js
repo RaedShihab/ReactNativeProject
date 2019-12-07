@@ -10,6 +10,7 @@ const Input = (props  )=> {
              placeholder={props.placeholder}
              secureTextEntry={props.secureTextEntry}
              autoCorrect={props.autoCorrect}
+             autoCapitalize = 'none'
              onChangeText={props.onChangeText}
             />
         </View>
