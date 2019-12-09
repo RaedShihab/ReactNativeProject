@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         borderBottomWidth:0,
         shadowColor: '#000',
         shadowOpacity: 0.1,
+        height: 100 ,
     }
 })
 

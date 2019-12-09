@@ -15,13 +15,13 @@ router.post('/add-item', (req, res)=> {
     .then(item => { res.sendStatus(200); console.log(item)})
 })
 
-router.post('/get-items' ,(req, res) => {
+router.get('/get-items' ,(req, res) => {
     let dataArray = [];
     Item.findAll().then( (data)=> {
-        data.map((item)=> {
-            dataArray.push(item.dataValues)
-        })
-        res.send(dataArray)
+        // data.map((item)=> {
+        //     dataArray.push(item.dataValues)
+        // })
+        // res.send(data)
         console.log('data', dataArray)
     })
 })

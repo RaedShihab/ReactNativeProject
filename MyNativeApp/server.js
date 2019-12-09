@@ -4,10 +4,12 @@ const bodyparser = require('body-parser')
 const db = require('./App/db/db');
 
 const app = express()
+var cors = require('cors');
+app.use(cors({origin: true, credentials: true}));
 const port = 3005
 
 // parse application/json
-app.use(bodyparser.json());
+app.use(bodyparser.json({type:'application/json'}));
 app.use(
   bodyparser.urlencoded({
     extended: true
