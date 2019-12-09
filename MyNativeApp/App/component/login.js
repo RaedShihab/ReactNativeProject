@@ -1,8 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {Button, Card, CardItem, Input} from '../common-component';
+import {View, Text, StyleSheet, Image} from 'react-native';
+import {Button, Card, CardItem, Input, Img} from '../common-component';
 import {connect} from 'react-redux';
-import {loginUser} from '../actions'
+import {loginUser} from '../actions';
+import {ITEM1} from '../imgs';
+import {ITEM2} from '../imgs';
 
 class Login extends React.Component {
   constructor(props) {
@@ -23,8 +25,9 @@ class Login extends React.Component {
     render(){
       console.log('data from reudx',this.props.loginInfo)
         return (
-            <View >
+            <View>
                 <Card>
+                <Img src={ITEM2} style={{width: 40, height: 40}} />
                   <CardItem>
                     <Input 
                     lable='Email'
