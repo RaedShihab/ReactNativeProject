@@ -2,7 +2,6 @@
 const express = require('express');
 const bodyparser = require('body-parser')
 const db = require('./App/db/db');
-const User = require('./App/db/models');
 
 const app = express()
 const port = 3005

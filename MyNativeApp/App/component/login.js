@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {loginUser} from '../actions';
 import {ITEM1} from '../imgs';
 import {ITEM2} from '../imgs';
+import axios from 'axios';
 
 class Login extends React.Component {
   constructor(props) {
@@ -12,9 +13,34 @@ class Login extends React.Component {
     this.state = {
       userName : '',
       password: '',
+      dataItems: ''
     }
   }
 
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
+    axios.post('http://localhost:3005/route/get-items')
+    .then(res => {
+      console.log('res',res);
+    })
+//     console.log('componentDidUpdate')
+//     fetch('http://localhost:3005/route/get-items', {
+//   method: 'POST',
+//   headers: {
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json',
+//   }
+// })
+// .then(response => {
+//   return response.json();
+// })
+// .then((data)=> console.log('data',data))
+// .catch(err => console.error(err))
+  }
+  componentWillMount() {
+    console.log('componentWillMount')
+  }
+  
   logIn = ()=> {
     const userName = this.state.userName;
     const password = this.state.password;
@@ -23,6 +49,7 @@ class Login extends React.Component {
   }
 
     render(){
+      console.log('render')
       console.log('data from reudx',this.props.loginInfo)
         return (
             <View>

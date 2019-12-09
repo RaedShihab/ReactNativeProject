@@ -16,7 +16,14 @@ router.post('/add-item', (req, res)=> {
 })
 
 router.post('/get-items' ,(req, res) => {
-    Item.findAll().then( ()=> res.sendStatus(200))
+    let dataArray = [];
+    Item.findAll().then( (data)=> {
+        data.map((item)=> {
+            dataArray.push(item.dataValues)
+        })
+        res.send(dataArray)
+        console.log('data', dataArray)
+    })
 })
 
 db.sync();
